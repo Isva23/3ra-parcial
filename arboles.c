@@ -114,11 +114,12 @@ int main(){
     if (buscador == NULL)
     {
         printf("%d no existe en el árbol\n", valor);
+        int altura = alturaArbolNodo(raiz,valor);
+        printf("\nLa altura del nodo es:%d",altura);
     }
     else
     {
         printf("%d sí existe en el árbol\n", valor);
     }
-    int altura = alturaArbolNodo(raiz,valor);
-    printf("\nLa altura del nodo es:%d",altura);
+
 }

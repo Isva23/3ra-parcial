@@ -74,7 +74,26 @@ struct nodo * buscar(struct nodo *nd,int valor){
         }
     }
 }
-
+int alturaArbolNodo (struct nodo* nd, int valor){
+    int altura=0;
+    struct nodo* actual= nd;
+    while (actual!=NULL){
+        if (valor == actual->dato){           
+            return altura;
+        }else{
+            altura++;
+            if (valor < actual->dato){               
+                actual=actual->hijo_izq;
+            }else{
+                if (valor > actual->dato){               
+                    actual=actual->hijo_der;
+                }
+            }
+        }
+    }
+printf("\nNo existe ese valor en el nodo.\n");
+return 0;
+}
 int main(){
     struct nodo* raiz = NULL;
     int valor;
@@ -100,4 +119,6 @@ int main(){
     {
         printf("%d sí existe en el árbol\n", valor);
     }
+    int altura = alturaArbolNodo(raiz,valor);
+    printf("\nLa altura del nodo es:%d",altura);
 }
